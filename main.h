@@ -3,5 +3,6 @@
 
 int _printf(const char *format, ...);
 print_char(char c);
+print_string(char *s);
 
 #endif
