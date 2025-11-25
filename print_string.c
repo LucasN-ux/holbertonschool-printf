@@ -9,9 +9,14 @@
 int print_string(va_list args)
 {
 	char *str = va_arg(args, char *);
+	int len = 0;
 
 	if (str == NULL)
-		str = "";
-	write(1, str, 1);
-	return(1);
+		str = "(nil)";
+
+	while (str[len])
+		len++;
+
+	write(1, str, len);
+	return(len);
 }
