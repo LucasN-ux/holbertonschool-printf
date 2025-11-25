@@ -1,9 +1,17 @@
 #include "main.h"
 
 int _printf(const char *format, ...)
+
+
 {
 	int i = 0;
 	va_list args;
+
+	check str[] = {
+		{"c", print_char};
+		{"s", print_string};
+		{"%", print_chr};
+	}
 
 	if (!format)
 	{
