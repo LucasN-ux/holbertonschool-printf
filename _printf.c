@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int count = 0;
-	int j = 0;
+	int j;
 	va_list args;
 
 	check str[] = {
@@ -33,6 +33,15 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+
+			if (format[i] == '\0')
+			{
+				va_end(args);
+				return(-1);
+			}
+
+			j = 0;
+
 			while (str[j].type)
 			{
 				if (format[i] == str[j].type[0])
@@ -41,6 +50,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 				j++;
+			}
+			if (str[j].type == NULL)
+			{
+				write(1, "%", 1);
+				write(1, &format[i], 1);
+				count += 2;
 			}
 		}
 		else
