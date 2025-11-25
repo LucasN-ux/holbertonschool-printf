@@ -1,13 +1,17 @@
 #include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
 
-print_string(char *s)
+/* print_string - print the string
+ * @args: argument
+ * return: 1
+ */
+int print_string(va_list args)
 {
-	int i;
+	char *str = va_arg(args, char *);
 
-	for (i = 0; s[i]; i++)
-	{
-		write(1, &s[i], 1);
-	}
-
-	return (i);
+	if (str == NULL)
+		str = "";
+	write(1, str, 1);
+	return(1);
 }
