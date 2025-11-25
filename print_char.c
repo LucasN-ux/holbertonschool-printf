@@ -1,10 +1,14 @@
 #include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
 
-/*print_char - imprime un caractère
- * @c: caractère à imprimer
+/* print_char - print single character
+ * @args: argument
  * return: 1
  */
-print_char(char c)
+int print_char(va_list args)
 {
-	return (write(1, &c, 1));
+	char c = (char)va_arg(args, int);
+	write(1, &c, 1);
+	return (1);
 }
