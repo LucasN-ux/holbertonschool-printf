@@ -17,9 +17,9 @@ int _printf(const char *format, ...)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
-		{NULL, NULL}
-
-	};
+		{"d", print_int},
+		{"i", print_int},
+		{NULL, NULL}};
 
 	if (!format)
 	{
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			if (format[i] == '\0')
 			{
 				va_end(args);
-				return(-1);
+				return (-1);
 			}
 
 			j = 0;
