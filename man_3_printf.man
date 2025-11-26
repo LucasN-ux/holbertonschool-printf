@@ -1,0 +1,122 @@
+.TH _PRINTF 3 "2025-11-26" "Custom C Library" "Library Functions Manual"
+
+.SH NAME
+_printf \- custom implementation of the standard printf function
+
+.SH SYNOPSIS
+.B #include "main.h"
+.bf
+.B #include<stdarg.h>
+.br
+.B #include<unistd.h>
+.PP
+.BI "int _printf(const char *" format ", ...);"
+
+.SH DESCRIPTION
+.B _printf()
+produces output according to the format string
+.I format
+and the additional arguments provided.
+It writes the result to the standard output(file descriptor 1) using
+.BR write(2) .
+
+.PP
+The
+.I format
+string may contain ordinary characters, wich are printed as-is, and
+conversion specifiers introduced by the percent character(%).
+
+.PP This implementation supports the following conversion specifiers :
+
+.TP
+.B %c 
+Prints a single character.
+The corresponding argument must be an
+.I int
+whose value is converted to an unsigned char.
+
+.TP
+.B %s 
+Prints a null-terminated string.
+The corresponding argument must be a
+.I char *
+pointer.
+If the pointer is
+.B NULL,
+the literal string "(null)" is printed.
+
+.TP
+.B %d 
+Prints a signed decimal integer.
+The argument must be an
+.I int
+value.
+
+.TP.B %i
+Same as %d.
+
+TP.B %%
+Prints a literral percent character(%).
+No argument is consumed.
+
+.PP
+If an unknow format specifier is encountered, the percent
+character and the unknown character are printed verbatim.
+
+.PP
+If
+.I format
+is
+.B NULL,
+the function returns -1.
+
+.SH RETURN VALUE
+On success,
+.B _printf()
+returns the total number of character printed.
+
+.PP
+If an error occurs, such as a
+.B NULL
+format string or a trailing percent sign at the end of the format,
+.B _printf()
+returns -1.
+
+.SH EXAMPLES
+.nf
+_printf("Let's try to printf a simple sentence.\n");
+.fi
+
+Prints :
+
+.nf
+Let's try to printf a simple sentence.
+.fi
+
+.nf
+_printf("Negative: [%d]\n", -762534);
+.fi
+
+Prints :
+
+.nf
+Negative : [-762534]
+.fi
+
+.SH NOTES
+This function is a simplified implementation of
+.B printf(3)
+function.
+
+.PP
+All output is performed using
+.BR write(2)
+and the standard buffering of
+.B stdio.
+
+.SH SEE ALSO
+printf(3),
+write(2)
+
+.SH AUTHORS
+Custom implementation by Aïny OURZIK and Lucas Nevano.
