@@ -70,7 +70,8 @@ https://man7.org/linux/man-pages/man0/unistd.h.0p.html
 
 ### Flowchart
 This is the _printf() flowchart:
-[Flowchart]
+<img width="1980" height="4050" alt="image" src="https://github.com/user-attachments/assets/dfbe589b-a9cc-4c4c-b0a1-85e9b3194375" />
+
 
 ## Version management
 
