@@ -17,5 +17,3 @@ int print_percent(va_list args);
 int print_int(va_list args);
 
 int _printf(const char *format, ...);
-
-#endif
