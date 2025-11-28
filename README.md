@@ -2,19 +2,18 @@
 
 ## About
 
-_printf is a custom implantation of the standard printf(3). It handles formatted conversion and writes characters to the standard output using write(2).
+_printf() is a custom implantation of the standard printf(3). It handles formatted conversion and writes characters to the standard output using write(2).
 This priject is a part of a low-level programming curriculum of the Holberton School.
 
 ## Table of contents
 
-- 🪧 [About](#about)
-- 📦 [Prerequisites](#prerequisites)
-- 🚀 [Facility](#facility)
-- 🛠️ [Use](#use)
-- 🤝 [Project Structure](#project-structure)
-- 🏗️ [Built with](#built-with)
-- 📚 [Documentation](#documentation)
-- 🏷️ [Version management](#version-management)
+-  [About](#about)
+-  [Prerequisites](#prerequisites)
+-  [Facility](#facility)
+-  [Use](#use)
+-  [Project Structure](#project-structure)
+-  [Built with](#built-with)
+-  [Documentation](#documentation)
 
 ## Prerequisites
 
@@ -29,7 +28,7 @@ Clone this repository:
 https://github.com/LucasN-ux/holbertonschool-printf.git
 
 Compile the files:
-gcc -Wall -Wextra -Werror -pedantic *.c _printf
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 ## Use
 
@@ -73,6 +72,3 @@ This is the _printf() flowchart:
 <img width="1980" height="4050" alt="image" src="https://github.com/user-attachments/assets/dfbe589b-a9cc-4c4c-b0a1-85e9b3194375" />
 
 
-## Version management
-
-In order to maintain a clear release cycle and propote backward compatibility, version naming follows the specification described by the [Semantic Version Management](https://semver.org/lang/fr/)
